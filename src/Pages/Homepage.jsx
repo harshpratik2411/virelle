@@ -3,6 +3,7 @@ import Navbar from '../Components/Navbar/Navbar'
 import Hero from '../Components/Hero/Hero'
 import Products from '../Components/Products/Products' 
 import Display from '../Components/Display/Display'
+import MostLoved from '../Components/MostLoved/MostLoved'
 
 const Homepage = () => {
   return (
@@ -12,6 +13,7 @@ const Homepage = () => {
        <Hero/> 
         <Products/>
         <Display/>
+        <MostLoved/>
 
      </div>
 
