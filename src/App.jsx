@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Homepage from './Pages/Homepage'
 import './App.css'
-import ProductDetail from './Components/Products/ProductsDetail'
+import ProductDetail from './Components/Products/ProductsDetail' 
+import ScrollToTop from  './ScrollToTop'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter> 
+     <ScrollToTop/>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/products/:id" element={<ProductDetail />} />
