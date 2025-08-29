@@ -9,8 +9,8 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="lg:mt-12 lg:p-8 p-6 mt-10 relative">
-      <section className="w-[92rem]  h-[44rem] relative mx-auto max-w-full overflow-hidden">
+    <div className="lg:mt-6 lg:p-8 p-6 mt-5 relative">
+      <section className="w-[92rem]  lg:h-[40rem] h-[30rem] relative mx-auto max-w-full overflow-hidden">
         {/* Background Video */}
         <video
           className="absolute top-0 left-0 w-full h-full object-cover"
