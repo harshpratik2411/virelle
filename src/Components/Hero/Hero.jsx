@@ -9,7 +9,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="lg:mt-16 lg:p-10 p-6 mt-16 relative">
+    <div className="lg:mt-12 lg:p-8 p-6 mt-10 relative">
       <section className="w-[92rem]  h-[44rem] relative mx-auto max-w-full overflow-hidden">
         {/* Background Video */}
         <video
@@ -30,7 +30,7 @@ const Hero = () => {
         <div className="flex flex-col h-full text-center px-4 relative z-20">
           <h1
             data-aos="fade-up"
-            className="text-white  -ml-6  lg:mt-20 mt-3 text-right  text-3xl md:text-6xl font-bold font-rubik max-w-full"
+            className="text-white  lg:-ml-6  lg:mt-20 mt-3 text-right  text-3xl md:text-6xl font-bold font-rubik max-w-full"
           >
             Welcome to Virelle
           </h1>
@@ -42,7 +42,7 @@ const Hero = () => {
             We deliver high-quality solutions with immersive experiences.
           </p>
           <button
-            className="mt-6 lg:px-6 px-4 lg:py-3 py-2 lg:w-[12rem] w-[10rem] lg:ml-[62rem] ml-24 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition max-w-full"
+            className="mt-6 lg:px-6 px-4 lg:py-3 py-2 lg:w-[12rem] w-[10rem] lg:ml-[48rem] ml-12 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition max-w-full"
           >
             Get Started
           </button>
@@ -53,3 +53,4 @@ const Hero = () => {
 };
 
 export default Hero;
+   
