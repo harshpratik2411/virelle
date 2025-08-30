@@ -80,7 +80,7 @@ const BottomBanner = () => {
     <>
       {/* === Hero Banner Section === */}
       <section
-        className="bg-black lg:w-[92rem] rounded-lg lg:-ml-[8rem] text-white py-12 px-4 md:px-16 font-rubik"
+        className="bg-gray-medium lg:w-[92rem] rounded-lg lg:-ml-[8rem] text-black py-12 px-4 md:px-16 font-rubik"
         ref={sectionRef}
       >
         <motion.div
@@ -113,7 +113,7 @@ const BottomBanner = () => {
 
       {/* === Virelle Brand Stats Section === */}
       <section
-        className="bg-black lg:w-[92rem] lg:-ml-[8rem] text-white py-12 px-4 md:px-16 font-rubik"
+        className="bg-gray-medium lg:w-[92rem] lg:-ml-[8rem] text-black py-12 px-4 md:px-16 font-rubik"
         ref={statsRef}
       >
         <motion.div

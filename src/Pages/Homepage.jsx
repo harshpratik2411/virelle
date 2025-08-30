@@ -5,6 +5,7 @@ import Products from '../Components/Products/Products'
 import Display from '../Components/Display/Display'
 import MostLoved from '../Components/MostLoved/MostLoved'
 import BottomBanner from '../Components/BottomBanner/BottomBanner'
+import Footer from '../Components/Footer/Footer'
 const Homepage = () => {
   return (
     <> 
@@ -15,6 +16,7 @@ const Homepage = () => {
         <Display/>
         <MostLoved/>
         <BottomBanner/>
+        <Footer/>
 
      </div>
 
