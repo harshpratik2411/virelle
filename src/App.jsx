@@ -5,6 +5,7 @@ import ProductDetail from './Components/Products/ProductsDetail'
 import MostLovedDetail from './Components/MostLoved/MostLovedDetail'
 import ScrollToTop from  './ScrollToTop'
 import NewArrival from './Pages/NewArrivals/NewArrival'
+import About from './Pages/About'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="/most-loved/:id" element={<MostLovedDetail />} />
         <Route path="/new-arrivals" element={<NewArrival />} />
+        <Route path="/about" element={<About />} />
         {/* <Route path="/about" element={<About />} /> */}
       </Routes>
     </BrowserRouter>

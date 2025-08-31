@@ -32,7 +32,7 @@ const NewArrival = () => {
     slidesToScroll: 1,
     arrows: true,
     autoplay: true,
-    autoplaySpeed: 3500,
+    autoplaySpeed: 200,
     responsive: [
       {
         breakpoint: 1024,
