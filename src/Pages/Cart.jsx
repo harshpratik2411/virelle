@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../CartContext/CartContext';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../Components/Navbar/Navbar';
@@ -9,13 +9,29 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 const Cart = () => {
   const { cartItems, updateQuantity, removeFromCart } = useCart();
   const navigate = useNavigate();
+  const [customAmount, setCustomAmount] = useState('');
 
   const getSubtotal = () =>
     cartItems.reduce((sum, item) => sum + item.discountPrice * item.quantity, 0);
 
-  const deliveryCharge = 12.99; // Fixed delivery
-  const discount = 0; // Apply promo code logic here if needed
+  const deliveryCharge = 12.99;
+  const discount = 0;
   const total = getSubtotal() + deliveryCharge - discount;
+
+  const handleUPIPayment = () => {
+  const upiLink = 'upi://pay?pa=merchant@upi&pn=Demo%20Merchant&am=500.00&cu=INR&tn=Order%20Payment';
+  window.location.href = upiLink;
+
+  // Ask for manual confirmation after a few seconds
+  setTimeout(() => {
+    const confirmed = window.confirm('Have you completed the UPI payment?');
+    if (confirmed) {
+      navigate('/success');
+    } else {
+      alert('Payment not completed.');
+    }
+  }, 3000);
+};
 
   if (!cartItems.length) {
     return (
@@ -49,7 +65,6 @@ const Cart = () => {
               key={item.id}
               className="flex items-center gap-6 bg-white border border-gray-200 p-5 rounded-xl shadow-sm hover:shadow-md transition"
             >
-              {/* Image */}
               <div className="w-28 h-28 flex-shrink-0">
                 <img
                   src={item.image}
@@ -58,16 +73,13 @@ const Cart = () => {
                 />
               </div>
 
-              {/* Details */}
               <div className="flex-1">
                 <h2 className="text-lg font-semibold text-gray-800">{item.name}</h2>
                 <p className="text-sm text-gray-500">Varient: {item.brand}</p>
                 <p className="text-sm text-gray-500">Size: {item.size}</p>
                 <p className="text-sm text-gray-500">Color: {item.color}</p>
 
-                {/* Actions */}
                 <div className="flex justify-between items-center mt-4">
-                  {/* Quantity */}
                   <div className="flex items-center gap-3">
                     <button
                       onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))}
@@ -84,14 +96,12 @@ const Cart = () => {
                     </button>
                   </div>
 
-                  {/* Price */}
                   <p className="text-lg font-semibold text-gray-800">
                     ${(item.discountPrice * item.quantity).toFixed(2)}
                   </p>
                 </div>
               </div>
 
-              {/* Remove button */}
               <button
                 onClick={() => removeFromCart(item.id)}
                 className="text-red-500 hover:text-red-700 transition"
@@ -125,15 +135,22 @@ const Cart = () => {
             </div>
           </div>
 
-          {/* Checkout */}
+          {/* Amount Input (optional) */}
+          <input
+            type="number"
+            value={customAmount}
+            onChange={(e) => setCustomAmount(e.target.value)}
+            placeholder={`Enter amount (Default: ${total.toFixed(2)})`}
+            className="mt-6 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-gray-300"
+          />
+
           <button
-            onClick={() => navigate('/')}
-            className="w-full mt-6 bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition"
+            onClick={handleUPIPayment}
+            className="w-full mt-4 bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition"
           >
-            Checkout
+            Pay with UPI
           </button>
 
-          {/* Promo Code */}
           <p className="text-sm text-gray-500 mt-4 text-center cursor-pointer hover:underline">
             Use a promo code
           </p>

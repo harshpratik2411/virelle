@@ -42,7 +42,7 @@ const Hero = () => {
             We deliver high-quality solutions with immersive experiences.
           </p>
           <button
-            className="mt-6 lg:px-6 px-4 lg:py-3 py-2 lg:w-[12rem] w-[10rem] lg:ml-[56rem] ml-24 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition max-w-full"
+            className="mt-6 lg:px-6 px-4 lg:py-3 py-2 lg:w-[12rem] w-[10rem] lg:ml-[52rem] ml-24 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition max-w-full"
           >
             Get Started
           </button>

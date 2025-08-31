@@ -36,12 +36,11 @@ const reviewsData = [
 ];
 
 const ProductDetail = () => {  
-  const addToCart = (product, quantity = 1) => {
-}
+  const { addToCart } = useCart();
 
   const { id } = useParams();
   const navigate = useNavigate();
-ProductsUi.find((p) => String(p.id) === id);
+const product = ProductsUi.find((p) => String(p.id) === id); 
   const relatedProducts = ProductsUi.filter((p) => String(p.id) !== id).slice(0, 4);
 
   const [selectedSize, setSelectedSize] = useState('M');
@@ -139,7 +138,8 @@ ProductsUi.find((p) => String(p.id) === id);
   className="w-full bg-black text-white py-3 rounded-md text-sm font-semibold hover:bg-gray-900 transition"
   onClick={() => addToCart(product, quantity)}
 >
-  Add to Cart - ₹{finalPrice.toFixed(2)}
+  Add to Cart - ₹{finalPrice.toFixed(2)} 
+  
 </button>
 
 
