@@ -9,17 +9,15 @@ import Footer from '../Components/Footer/Footer'
 const Homepage = () => {
   return (
     <> 
-     <div>
-       <Navbar/>
-       <Hero/> 
-        <Products/>
-        <Display/>
-        <MostLoved/>
-        <BottomBanner/>
-        <Footer/>
-
-     </div>
-
+     <div className=" overflow-x-hidden">
+        <Navbar />
+       <Hero />
+        <Products />
+        <Display />
+        <MostLoved />
+        <BottomBanner />
+      </div>
+      <Footer />
     </>
 
   )

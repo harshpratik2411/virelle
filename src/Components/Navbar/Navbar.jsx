@@ -6,8 +6,8 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className=" mt-4  font-outfit w-full z-50  top-0 left-0">
-      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="mt-4 font-outfit w-full z-50  top-0 left-0">
+      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-28">
         <div className="flex items-center justify-between h-16 rounded-full bg-black px-4 md:px-8 py-2">
           {/* Left Icon / Brand */}
           <Link to="/" className="text-white text-2xl font-bold">

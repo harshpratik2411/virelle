@@ -7,7 +7,7 @@ const Products = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
+    <div className="max-w-7xl lg:-mt-16 mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold text-center mb-10">
         Featured Products
       </h1>

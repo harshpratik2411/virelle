@@ -50,7 +50,7 @@ import  img6 from '../../assets/MostLoved/img6.jpg'
     image: img5,
     originalPrice: 1299,
     discountPrice: 899,
-    description: 'Soft cotton polo t-shirt, great for summer vibes.',
+    description: 'Soft cotton Calvin klein , great for summer vibes and ocassions.',
   },
   {
     id: '6',
@@ -59,10 +59,11 @@ import  img6 from '../../assets/MostLoved/img6.jpg'
     image: img6,
     originalPrice: 1599,
     discountPrice: 1099,
-    description: 'Perfect for office or formal occasions.',
+    description: 'Perfect for office or summer ocassions with colorful colors.',
   },
   
   
 ];
 
 export default MostLovedUi;
+ 

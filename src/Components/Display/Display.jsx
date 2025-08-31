@@ -28,8 +28,9 @@ const Display = () => {
 
   return (  
 
-    <span className='font-bold text-lime-bright lg:text-7xl text-4xl animate-bounce mt-4 '> Our Best Products
-    <div className="p-4 md:p-10 mt-5 bg-[#0f0f0f] min-h-screen font-outfit">
+    <span className='font-bold text-lime-bright lg:ml-[28rem] ml-[3.5rem] lg:text-7xl text-4xl animate-bounce mt-4 '> Our Best Products 
+    <div className='lg:p-20 lg:-mt-12 p-4'>
+    <div className="p-8 md:p-10 mt-5 bg-[#0f0f0f] min-h-screen font-outfit">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 auto-rows-[200px] sm:auto-rows-[250px] md:auto-rows-[200px] gap-4">
         {mediaItems.map((item, index) => (
           <div
@@ -58,6 +59,7 @@ const Display = () => {
         ))}
       </div>
     </div> 
+    </div>
     </span>
   );
 };

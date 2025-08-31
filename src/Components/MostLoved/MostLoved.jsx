@@ -7,8 +7,8 @@ const MostLoved = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
-      <h1 className="text-6xl font-bold text-center text-lime-bright mb-10">
+    <div className="max-w-7xl mx-auto lg:-mt-12 px-4 py-12">
+      <h1 className="text-6xl lg:ml-8 font-bold text-center text-lime-bright mb-10">
         Most Loved & Best-Sellers
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
