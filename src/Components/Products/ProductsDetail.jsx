@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ProductsUi from './ProductsUi';
-import Navbar from '../Navbar/Navbar';
+import Navbar from '../Navbar/Navbar'; 
+import { useCart } from '../../CartContext/CartContext'
+
 
 const reviewsData = [
   {
@@ -33,11 +35,13 @@ const reviewsData = [
   },
 ];
 
-const ProductDetail = () => {
+const ProductDetail = () => {  
+  const addToCart = (product, quantity = 1) => {
+}
+
   const { id } = useParams();
   const navigate = useNavigate();
-  const product = ProductsUi.find((p) => String(p.id) === id);
-
+ProductsUi.find((p) => String(p.id) === id);
   const relatedProducts = ProductsUi.filter((p) => String(p.id) !== id).slice(0, 4);
 
   const [selectedSize, setSelectedSize] = useState('M');
@@ -131,9 +135,13 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            <button className="w-full bg-black text-white py-3 rounded-md text-sm font-semibold hover:bg-gray-900 transition">
-              Add to Cart - ₹{finalPrice.toFixed(2)}
-            </button>
+           <button
+  className="w-full bg-black text-white py-3 rounded-md text-sm font-semibold hover:bg-gray-900 transition"
+  onClick={() => addToCart(product, quantity)}
+>
+  Add to Cart - ₹{finalPrice.toFixed(2)}
+</button>
+
 
             <div className="text-center mt-3">
               <button className="text-gray-500 hover:text-black text-xl">♡</button>
@@ -279,7 +287,6 @@ const ProductDetail = () => {
     </div>
   </div>
 </div>
-
 
         {/* Related Products */}
         <div className="mt-20 border-t pt-10">

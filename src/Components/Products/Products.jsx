@@ -2,9 +2,12 @@ import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import ProductsUi from "./ProductsUi";
+import { useCart } from "../../CartContext/CartContext";
 
 const Products = () => {
   const navigate = useNavigate();
+  const { addToCart } = useCart(); 
+
 
   return (
     <div className="max-w-7xl lg:-mt-16 mx-auto px-4 py-12">
@@ -54,16 +57,17 @@ const Products = () => {
               </span>
 
               {/* Add to Cart Icon */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation(); // Prevent navigation on cart button click
-                  // Add to cart logic here
-                }}
-                className="absolute bottom-3 right-3 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition"
-                title="Add to Cart"
-              >
-                <FaShoppingCart size={16} />
-              </button>
+             
+<button
+  onClick={(e) => {
+    e.stopPropagation();
+    addToCart(product);
+  }}
+  className="absolute bottom-3 right-3 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition"
+  title="Add to Cart"
+>
+  <FaShoppingCart size={16} />
+</button>
             </div>
           );
         })}

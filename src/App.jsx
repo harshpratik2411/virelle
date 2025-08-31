@@ -7,10 +7,13 @@ import ScrollToTop from  './ScrollToTop'
 import NewArrival from './Pages/NewArrivals/NewArrival'
 import About from './Pages/About'
 import Contact from './Pages/Contact'
+import { CartProvider } from './CartContext/CartContext' 
+import Cart from './Pages/Cart'
 
 function App() {
   return (
-    <BrowserRouter> 
+    <BrowserRouter>  
+     <CartProvider>
      <ScrollToTop/>
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -19,8 +22,10 @@ function App() {
         <Route path="/new-arrivals" element={<NewArrival />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/cart" element={<Cart />} />
         {/* <Route path="/about" element={<About />} /> */}
-      </Routes>
+      </Routes> 
+      </CartProvider>
     </BrowserRouter>
   )
 }
