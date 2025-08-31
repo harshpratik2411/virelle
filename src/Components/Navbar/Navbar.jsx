@@ -1,22 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => setIsOpen(prev => !prev);
+  const closeMenu = () => setIsOpen(false);
+
+  // Auto-close mobile menu on desktop resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        closeMenu();
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
-    <nav className="mt-4 font-outfit w-full z-50  top-0 left-0">
+    <nav className="mt-4 relative font-outfit w-full z-50 top-0 left-0">
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-28">
-        <div className="flex items-center justify-between h-16 rounded-full bg-black px-4 md:px-8 py-2">
-          {/* Left Icon / Brand */}
+        <div className="flex items-center justify-between h-16 rounded-full bg-black px-4 md:px-8 py-2 relative">
+          {/* Brand */}
           <Link to="/" className="text-white text-2xl font-bold">
             Virelle
           </Link>
 
-          <div className="lg:flex lg:ml-5 hidden items-center justify-center w-8 h-8 bg-white rounded-full">
+          {/* Center icon */} 
+          <div className="lg:flex hidden -ml-[10rem] items-center justify-center w-8 h-8 bg-white rounded-full">
             <svg
-              className="w-5 h-5 animate-spin text-black"
+              className="w-5 h-5  animate-spin text-black"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -24,25 +37,25 @@ const Navbar = () => {
             </svg>
           </div>
 
-          {/* Desktop Menu */}
-          <ul className="hidden md:flex flex-1 justify-center space-x-8 text-white text-sm font-medium tracking-wide">
-            <li><Link to="/new-arrivals" className="cursor-pointer hover:text-gray-300">New Arrivals</Link></li>
-            <li><Link to="/women" className="cursor-pointer hover:text-gray-300">Women</Link></li>
-            <li><Link to="/men" className="cursor-pointer hover:text-gray-300">Men</Link></li>
-            <li><Link to="/collections" className="cursor-pointer hover:text-gray-300">Collections</Link></li>
-            <li><Link to="/about" className="cursor-pointer hover:text-gray-300">About</Link></li>
-            <li><Link to="/contact" className="cursor-pointer hover:text-gray-300">Contact</Link></li>
+          {/* Desktop menu */}
+          <ul className="lg:flex  hidden cursor-pointer justify-center space-x-8 text-white text-sm font-medium tracking-wide">
+            <li><Link to="/new-arrivals" className="hover:text-gray-300">New Arrivals</Link></li>
+            <li><Link to="/women" className="hover:text-gray-300">Women</Link></li>
+            <li><Link to="/men" className="hover:text-gray-300">Men</Link></li>
+            <li><Link to="/collections" className="hover:text-gray-300">Collections</Link></li>
+            <li><Link to="/about" className="hover:text-gray-300">About</Link></li>
+            <li><Link to="/contact" className="hover:text-gray-300">Contact</Link></li>
           </ul>
 
-          {/* Email Pill (Desktop Only) */}
+          {/* Desktop email pill */}
           <div className="hidden md:block bg-white text-black rounded-full px-5 py-1.5 text-sm font-semibold cursor-pointer whitespace-nowrap">
             virelle@gmail.com
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile menu button */}
           <button
             onClick={toggleMenu}
-            className="md:hidden text-white text-3xl focus:outline-none"
+            className="md:hidden text-white text-3xl focus:outline-none z-50"
             aria-label="Toggle menu"
           >
             {isOpen ? '✕' : '☰'}
@@ -51,25 +64,38 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden fixed inset-0 bg-black bg-opacity-95 z-50 flex flex-col items-center justify-center space-y-8 text-white uppercase text-lg font-medium tracking-wide px-8">
-          <ul className="space-y-6 text-center">
-            <li onClick={toggleMenu}><Link to="/new-arrivals" className="cursor-pointer hover:text-gray-400">New Arrivals</Link></li>
-            <li onClick={toggleMenu}><Link to="/women" className="cursor-pointer hover:text-gray-400">Women</Link></li>
-            <li onClick={toggleMenu}><Link to="/men" className="cursor-pointer hover:text-gray-400">Men</Link></li>
-            <li onClick={toggleMenu}><Link to="/collections" className="cursor-pointer hover:text-gray-400">Collections</Link></li>
-            <li onClick={toggleMenu}><Link to="/about" className="cursor-pointer hover:text-gray-400">About</Link></li>
-            <li onClick={toggleMenu}><Link to="/contact" className="cursor-pointer hover:text-gray-400">Contact</Link></li>
-          </ul>
+      <div
+        className={`md:hidden fixed inset-0 bg-black bg-opacity-95 z-40 flex-col items-center justify-center px-8 transition-all duration-300 ${
+          isOpen ? 'flex' : 'hidden'
+        }`}
+      >
+        {/* Close button inside */}
+        <button
+          onClick={closeMenu}
+          className="absolute top-6 right-6 text-white text-3xl"
+          aria-label="Close menu"
+        >
+          ✕
+        </button>
 
-          <div
-            className="bg-white text-black rounded-full px-6 py-2 text-sm font-semibold cursor-pointer"
-            onClick={toggleMenu}
-          >
-            virelle@gmail.com
-          </div>
+        {/* Mobile links */}
+        <ul className="space-y-6 text-white uppercase text-lg font-medium tracking-wide text-center">
+          <li onClick={closeMenu}><Link to="/new-arrivals" className="hover:text-gray-400">New Arrivals</Link></li>
+          <li onClick={closeMenu}><Link to="/women" className="hover:text-gray-400">Women</Link></li>
+          <li onClick={closeMenu}><Link to="/men" className="hover:text-gray-400">Men</Link></li>
+          <li onClick={closeMenu}><Link to="/collections" className="hover:text-gray-400">Collections</Link></li>
+          <li onClick={closeMenu}><Link to="/about" className="hover:text-gray-400">About</Link></li>
+          <li onClick={closeMenu}><Link to="/contact" className="hover:text-gray-400">Contact</Link></li>
+        </ul>
+
+        {/* Email pill */}
+        <div
+          onClick={closeMenu}
+          className="mt-10 bg-white text-black rounded-full px-6 py-2 text-sm font-semibold cursor-pointer"
+        >
+          virelle@gmail.com
         </div>
-      )}
+      </div>
     </nav>
   );
 };

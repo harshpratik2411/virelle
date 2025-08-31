@@ -23,7 +23,7 @@ import  img6 from '../../assets/MostLoved/img6.jpg'
     image: img2,
     originalPrice: 1999,
     discountPrice: 1299,
-    description: 'Stay warm and stylish with this black streetwear hoodie.',
+    description: 'Stay warm and stylish with this black streetwear fabric hoodie.',
   },
   {
     id: '3',
@@ -32,7 +32,7 @@ import  img6 from '../../assets/MostLoved/img6.jpg'
     image: img3,
     originalPrice: 2499,
     discountPrice: 1799,
-    description: 'Classic denim jacket for all-season fashion.',
+    description: 'Classic denim jacket for all-season fashion and parties or celebrations.',
   },
   {
     id: '4',
@@ -41,7 +41,7 @@ import  img6 from '../../assets/MostLoved/img6.jpg'
     image: img4,
     originalPrice: 1799,
     discountPrice: 1299,
-    description: 'Comfortable and stylish chinos for your everyday look.',
+    description: 'Comfortable and colourful stylish chinos for your everyday look.',
   },
   {
     id: '5',
