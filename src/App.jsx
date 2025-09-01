@@ -12,6 +12,8 @@ import Cart from './Pages/Cart'
 import Success from './Pages/Success'
 import Womens from './Pages/Womens/Womens'
 import Mens from './Pages/Mens/Mens'
+import CollectionDetails from './Pages/Collections/CollectionDetails'
+import Collections from './Pages/Collections/Collections'
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         <Route path="/success" element={<Success />} />
         <Route path="/women" element={<Womens />} />
         <Route path="/men" element={<Mens />} />
+       <Route path="/collections" element={<Collections />} />
+     <Route path="/collections/:id" element={<CollectionDetails />} />
         {/* <Route path="/about" element={<About />} /> */}
       </Routes> 
       </CartProvider>
