@@ -11,6 +11,7 @@ import { CartProvider } from './CartContext/CartContext'
 import Cart from './Pages/Cart'
 import Success from './Pages/Success'
 import Womens from './Pages/Womens/Womens'
+import Mens from './Pages/Mens/Mens'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/success" element={<Success />} />
         <Route path="/women" element={<Womens />} />
+        <Route path="/men" element={<Mens />} />
         {/* <Route path="/about" element={<About />} /> */}
       </Routes> 
       </CartProvider>
