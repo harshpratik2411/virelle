@@ -133,13 +133,15 @@ const product = ProductsUi.find((p) => String(p.id) === id);
                 </button>
               </div>
             </div>
-
-           <button
+<button
   className="w-full bg-black text-white py-3 rounded-md text-sm font-semibold hover:bg-gray-900 transition"
-  onClick={() => addToCart(product, quantity)}
+  onClick={() => {
+    addToCart(product, quantity); // Call your cart context logic
+    alert('✅ Product added to cart!');
+    navigate('/cart'); // Redirect to cart page
+  }}
 >
-  Add to Cart - ₹{finalPrice.toFixed(2)} 
-  
+  Add to Cart - ₹{finalPrice.toFixed(2)}
 </button>
 
 
